@@ -125,7 +125,11 @@ class MCPToolTester:
         print(f"Testing: {tool_name}")
         if description:
             print(f"Description: {description}")
-        print(f"Parameters: {json.dumps(params, indent=2)}")
+        param_keys = list(params.keys()) if isinstance(params, dict) else None
+        if param_keys is not None:
+            print(f"Parameters (keys only): {param_keys}")
+        else:
+            print("Parameters: <non-dict value>")
         print(f"{'='*80}")
         
         success, result, error = call_mcp_tool(tool_name, params, self.token)
