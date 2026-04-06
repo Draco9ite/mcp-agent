@@ -1,20 +1,21 @@
 # Requirements for Price Adjustment Agent
-# Following the same pattern as appcertify-aiagent
+# Azure AI Foundry backed, deployed on Azure App Service
 
 # Core dependencies
 flask==3.0.0
 flask-socketio==5.3.6
 python-dotenv==1.0.0
 
-# Azure OpenAI and Agents (using correct package names)
-openai>=1.54.3
-openai-agents
-httpx==0.25.2
+# Azure OpenAI Assistants API
+openai>=1.30.0
 azure-identity>=1.15.0
-azure-core>=1.29.0
+aiohttp>=3.9.0
 
-# DocuSign JWT Authentication
-PyJWT==2.8.0
+# Production WSGI server for Azure deployment
+gunicorn>=21.2.0
+eventlet>=0.35.1
+
+# DocuSign
 cryptography==41.0.7
 requests==2.31.0
 

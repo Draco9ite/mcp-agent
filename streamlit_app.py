@@ -27,8 +27,8 @@ load_dotenv()
 # Constants
 TOKEN_FILE = ".mcp_tokens.json"
 MCP_SERVER_URL = os.getenv("DOCUSIGN_MCP_BASE_URL", "https://services.demo.docusign.net/docusign-mcp-server/v1.0/mcp")
-ACCOUNT_ID = os.getenv("DOCUSIGN_ACCOUNT_ID")
-WORKFLOW_ID = os.getenv("DOCUSIGN_WORKFLOW_ID")
+ACCOUNT_ID = os.getenv("DOCUSIGN_ACCOUNT_ID", "999fac92-647f-4471-a16f-51f38abf2d83")
+WORKFLOW_ID = os.getenv("DOCUSIGN_WORKFLOW_ID", "1fc6d7e9-613b-4843-8d79-29bbb07c015d")
 
 # Tool categories and descriptions
 TOOL_CATEGORIES = {
