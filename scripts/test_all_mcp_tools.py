@@ -125,9 +125,9 @@ class MCPToolTester:
         print(f"Testing: {tool_name}")
         if description:
             print(f"Description: {description}")
-        param_keys = list(params.keys()) if isinstance(params, dict) else None
-        if param_keys is not None:
-            print(f"Parameters (keys only): {param_keys}")
+        param_count = len(params) if isinstance(params, dict) else None
+        if param_count is not None:
+            print(f"Parameters: {param_count} key(s)")
         else:
             print("Parameters: <non-dict value>")
         print(f"{'='*80}")
