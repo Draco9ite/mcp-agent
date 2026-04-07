@@ -8,7 +8,22 @@ load_dotenv()
 
 CLIENT_ID = os.getenv("INTEGRATION_KEY")
 CLIENT_SECRET = os.getenv("SECRET_KEY")
-REDIRECT_URI = os.getenv("DOCUSIGN_REDIRECT_URI", "http://localhost:5001/oauth/callback")
+
+# Build redirect URI from APP_URL or WEBSITE_HOSTNAME (Azure App Service) 
+def _build_redirect_uri():
+    explicit = os.getenv("DOCUSIGN_REDIRECT_URI")
+    if explicit:
+        return explicit
+    app_url = os.getenv("APP_URL")
+    if app_url:
+        return f"{app_url.rstrip('/')}/oauth/callback"
+    hostname = os.getenv("WEBSITE_HOSTNAME")
+    if hostname:
+        return f"https://{hostname}/oauth/callback"
+    port = os.getenv("PORT", "8000")
+    return f"http://localhost:{port}/oauth/callback"
+
+REDIRECT_URI = _build_redirect_uri()
 AUTH_URL = "https://account-d.docusign.com/oauth/auth"
 TOKEN_URL = "https://account-d.docusign.com/oauth/token"
 MCP_SERVER_URL = "https://services.demo.docusign.net/docusign-mcp-server/v1.0/mcp"

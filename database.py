@@ -5,7 +5,6 @@ import threading
 from datetime import datetime
 from typing import Dict, Any, List, Optional, Callable
 from contextlib import contextmanager
-from dotenv import load_dotenv
 
 logger = logging.getLogger(__name__)
 
