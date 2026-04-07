@@ -2,13 +2,14 @@
 # Azure AI Foundry backed, deployed on Azure App Service
 
 # Core dependencies
-flask==3.0.0
+flask==3.1.3
 flask-socketio==5.3.6
 python-dotenv==1.0.0
 
 # Azure OpenAI Assistants API
 openai>=1.30.0
-azure-identity>=1.15.0
+azure-core>=1.38.0
+azure-identity>=1.16.1
 aiohttp>=3.9.0
 
 # Production WSGI server for Azure deployment
@@ -16,11 +17,11 @@ gunicorn>=21.2.0
 eventlet>=0.35.1
 
 # DocuSign
-cryptography==41.0.7
-requests==2.31.0
+cryptography==46.0.6
+requests==2.33.0
 
 # Streamlit for web UI
-streamlit==1.29.0
+streamlit==1.54.0
 pandas>=2.0.0
 
 # Development dependencies
