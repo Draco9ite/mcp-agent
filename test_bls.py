@@ -22,9 +22,9 @@ def test_bls_api(start_year, end_year):
     # Get BLS API key
     bls_api_key = os.getenv('BLS_API_KEY')
     if bls_api_key:
-        print(f"🔑 Using API key: {bls_api_key[:8]}...")
+        print("🔑 Using API key from environment")
     else:
-        print(f"⚠️ No API key - using public API")
+        print("⚠️ No API key - using public API")
     
     # BLS API call
     url = "https://api.bls.gov/publicAPI/v2/timeseries/data/"
