@@ -61,6 +61,16 @@ db, processor = initialize_app()
 # Initialize DocuSign MCP Client
 docusign_client = DocuSignMCPClient()
 
+# Register the DocuSign IAM + CLM integration at /api/v1/docusign. Registration
+# performs no network call; a token is minted on the first request to it, so a
+# deployment without DocuSign credentials still starts.
+try:
+    from docusign_iam.api import iam_clm_bp
+    app.register_blueprint(iam_clm_bp)
+    logger.info("✅ DocuSign IAM + CLM API registered at /api/v1/docusign")
+except Exception as e:
+    logger.error(f"❌ Could not register DocuSign IAM + CLM API: {e}")
+
 # Real-time update broadcast function
 def broadcast_update(request_id: str, agent_name: str, status: str, data: Dict[Any, Any] = None):
     """Broadcast real-time updates to connected dashboard clients"""

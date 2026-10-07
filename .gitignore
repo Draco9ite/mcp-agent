@@ -17,7 +17,9 @@ env/
 
 # Tokens and credentials
 .mcp_tokens.json
+.docusign_iam_tokens.json
 *.pem
+*.key
 
 # IDE
 .vscode/

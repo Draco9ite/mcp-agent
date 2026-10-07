@@ -1,0 +1,1550 @@
+{
+  "_generated_by": "scripts/generate_clm_attribute_map.py",
+  "_source": "smarter-docusign/docs/Solution2_CSV_Column_Reference.md",
+  "contract_types": {
+    "EMSNA": {
+      "CP_Contact_Person_Email": [
+        [
+          "Counterparty Contact Details",
+          "Counterparty Contact Person Email"
+        ]
+      ],
+      "CP_Contact_Person_Name": [
+        [
+          "Counterparty Contact Details",
+          "Counterparty Contact Person Name"
+        ]
+      ],
+      "CP_Contact_Person_Number": [
+        [
+          "Counterparty Contact Details",
+          "Counterparty Contact Person Number"
+        ]
+      ],
+      "Contract_Type": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Document Type"
+        ]
+      ],
+      "Country_of_Incorporation": [
+        [
+          "Counterparty Details",
+          "Country of Incorporation"
+        ]
+      ],
+      "Current_Department": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Current Department"
+        ]
+      ],
+      "Effective_Date": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Effective Date"
+        ],
+        [
+          "CLM Agreement Details",
+          "Effective Date"
+        ]
+      ],
+      "Governing_Law_and_Jurisdiction": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Governing Law and Jurisdiction"
+        ]
+      ],
+      "Region": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Region"
+        ]
+      ],
+      "Segment": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Segment"
+        ]
+      ],
+      "Status": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Status"
+        ]
+      ],
+      "Template": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Template"
+        ]
+      ]
+    },
+    "FFP": {
+      "CP_Contact_Person_Email": [
+        [
+          "Counterparty Contact Details",
+          "Counterparty Contact Person Email"
+        ]
+      ],
+      "CP_Contact_Person_Name": [
+        [
+          "Counterparty Contact Details",
+          "Counterparty Contact Person Name"
+        ]
+      ],
+      "CP_Contact_Person_Number": [
+        [
+          "Counterparty Contact Details",
+          "Counterparty Contact Person Number"
+        ]
+      ],
+      "Contract_Type": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Document Type"
+        ]
+      ],
+      "Country_of_Incorporation": [
+        [
+          "Counterparty Details",
+          "Country of Incorporation"
+        ]
+      ],
+      "Current_Department": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Current Department"
+        ]
+      ],
+      "Effective_Date": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Effective Date"
+        ],
+        [
+          "CLM Agreement Details",
+          "Effective Date"
+        ]
+      ],
+      "Governing_Law_and_Jurisdiction": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Governing Law and Jurisdiction"
+        ]
+      ],
+      "Region": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Region"
+        ]
+      ],
+      "Segment": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Segment"
+        ]
+      ],
+      "Status": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Status"
+        ]
+      ],
+      "Template": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Template"
+        ]
+      ]
+    },
+    "ISDA": {
+      "Additional_Tax_Representations": [
+        [
+          "ISDA Questions",
+          "Additional Tax Representations"
+        ]
+      ],
+      "Automatic_Early_Termination": [
+        [
+          "ISDA Questions",
+          "Automatic Early Termination"
+        ]
+      ],
+      "CD_Applicability": [
+        [
+          "ISDA Questions",
+          "CD Applicability"
+        ]
+      ],
+      "CP_ATEs": [
+        [
+          "ISDA Contract Population - CP",
+          "CP ATEs"
+        ]
+      ],
+      "CP_CD_Exception": [
+        [
+          "ISDA Contract Population - CP",
+          "CP CD Exception"
+        ]
+      ],
+      "CP_CD_Threshold_Amt_Currency": [
+        [
+          "ISDA Contract Population - CP",
+          "CP CD Threshold Amt Currency"
+        ]
+      ],
+      "CP_CD_Threshold_Fixed_Amt": [
+        [
+          "ISDA Contract Population - CP",
+          "CP CD Threshold Fixed Amt"
+        ]
+      ],
+      "CP_CD_Threshold_Percentage_Amt": [
+        [
+          "ISDA Contract Population - CP",
+          "CP CD Threshold Percentage Amt"
+        ]
+      ],
+      "CP_CD_Threshold_Type": [
+        [
+          "ISDA Contract Population - CP",
+          "CP CD Threshold Type"
+        ]
+      ],
+      "CP_Credit_Support_Document": [
+        [
+          "ISDA Contract Population - CP",
+          "CP Credit Support Document"
+        ]
+      ],
+      "CP_Multibranch": [
+        [
+          "ISDA Contract Population - CP",
+          "CP Multibranch"
+        ]
+      ],
+      "CP_Payee_Rep": [
+        [
+          "ISDA Contract Population - CP",
+          "CP Payee Rep"
+        ]
+      ],
+      "CP_Payer_Rep": [
+        [
+          "ISDA Contract Population - CP",
+          "CP Payer Rep"
+        ]
+      ],
+      "CP_Process_Agent": [
+        [
+          "ISDA Contract Population - CP",
+          "CP Process Agent"
+        ]
+      ],
+      "CP_SE_Bankruptcy": [
+        [
+          "ISDA Contract Population - CP",
+          "CP SE Bankruptcy"
+        ]
+      ],
+      "CP_SE_CEUM": [
+        [
+          "ISDA Contract Population - CP",
+          "CP SE CEUM"
+        ]
+      ],
+      "CP_SE_Cross-Default": [
+        [
+          "ISDA Contract Population - CP",
+          "CP SE Cross Default"
+        ]
+      ],
+      "CP_SE_DUST": [
+        [
+          "ISDA Contract Population - CP",
+          "CP SE DUST"
+        ]
+      ],
+      "Calculation_Agent": [
+        [
+          "ISDA Questions",
+          "Calculation Agent"
+        ]
+      ],
+      "Close_Out_Netting_for_Risk_Purposes": [
+        [
+          "ISDA Questions",
+          "Close Out Netting for Risk Purposes"
+        ]
+      ],
+      "Close_Out_Netting_for_Risk_Purposes_Notes": [
+        [
+          "ISDA Questions",
+          "Close Out Netting for Risk Purposes Notes"
+        ]
+      ],
+      "Collateral_Enforceability": [
+        [
+          "ISDA Questions",
+          "Collateral Enforceability"
+        ]
+      ],
+      "Collateral_Enforceability_Notes": [
+        [
+          "ISDA Questions",
+          "Collateral Enforceability Notes"
+        ]
+      ],
+      "Contains_Issue_Bankruptcy_Amendment": [
+        [
+          "ISDA Questions",
+          "Contains Issue Bankruptcy Amendment"
+        ]
+      ],
+      "Contract_Type": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Document Type"
+        ]
+      ],
+      "Country_of_Incorporation": [
+        [
+          "Counterparty Details",
+          "Country of Incorporation"
+        ]
+      ],
+      "Credit_Event_Upon_Merger_Applicability": [
+        [
+          "ISDA Questions",
+          "Credit Event Upon Merger Applicability"
+        ]
+      ],
+      "Credit_Support_Annexes": [
+        [
+          "ISDA Questions",
+          "Credit Support Annexes"
+        ]
+      ],
+      "Current_Department": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Current Department"
+        ]
+      ],
+      "Exceptions": [
+        [
+          "ISDA Questions",
+          "Exceptions"
+        ]
+      ],
+      "Financial_Covenant_Related_Clause": [
+        [
+          "ISDA Questions",
+          "Financial Covenant Related Clause"
+        ]
+      ],
+      "Financial_Covenant_Trigger": [
+        [
+          "ISDA Questions",
+          "Financial Covenant Trigger"
+        ]
+      ],
+      "Governing_Law_and_Jurisdiction": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Governing Law and Jurisdiction"
+        ]
+      ],
+      "Minimum_Transfer_Amount": [
+        [
+          "ISDA Questions",
+          "Minimum Transfer Amount"
+        ]
+      ],
+      "Payment_Netting": [
+        [
+          "ISDA Contract Population",
+          "Payment Netting"
+        ]
+      ],
+      "Payment_Netting_Details": [
+        [
+          "ISDA Contract Population",
+          "Payment Netting Details"
+        ]
+      ],
+      "Pre-Print_Form": [
+        [
+          "ISDA Contract Population",
+          "Pre Print Form"
+        ]
+      ],
+      "Region": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Region"
+        ]
+      ],
+      "Rounding": [
+        [
+          "ISDA Questions",
+          "What is the Rounding (up & down to nearest int.)"
+        ]
+      ],
+      "Segment": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Segment"
+        ]
+      ],
+      "Specified_Indebtedness_Definition": [
+        [
+          "ISDA Contract Population",
+          "Specified Indebtedness Definition"
+        ]
+      ],
+      "Specified_Transaction_Definition": [
+        [
+          "ISDA Contract Population",
+          "Specified Transaction Definition"
+        ]
+      ],
+      "Status": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Status"
+        ]
+      ],
+      "Template": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Template"
+        ]
+      ],
+      "Termination_Currency": [
+        [
+          "ISDA Contract Population",
+          "Termination Currency"
+        ]
+      ],
+      "WKC_ATEs": [
+        [
+          "ISDA Contract Population - WKC",
+          "WKC ATEs"
+        ]
+      ],
+      "WKC_CD_Exception": [
+        [
+          "ISDA Contract Population - WKC",
+          "WKC CD Exception"
+        ]
+      ],
+      "WKC_CD_Threshold_Amt_Currency": [
+        [
+          "ISDA Contract Population - WKC",
+          "WKC CD Threshold Amt Currency"
+        ]
+      ],
+      "WKC_CD_Threshold_Fixed_Amt": [
+        [
+          "ISDA Contract Population - WKC",
+          "WKC CD Threshold Fixed Amt"
+        ]
+      ],
+      "WKC_CD_Threshold_Percentage_Amt": [
+        [
+          "ISDA Contract Population - WKC",
+          "WKC CD Threshold Percentage Amt"
+        ]
+      ],
+      "WKC_CD_Threshold_Type": [
+        [
+          "ISDA Contract Population - WKC",
+          "WKC CD Threshold Type"
+        ]
+      ],
+      "WKC_Credit_Support_Document": [
+        [
+          "ISDA Contract Population - WKC",
+          "WKC Credit Support Document"
+        ]
+      ],
+      "WKC_Credit_Support_Provider": [
+        [
+          "ISDA Contract Population - WKC",
+          "WKC Credit Support Provider"
+        ]
+      ],
+      "WKC_Multibranch": [
+        [
+          "ISDA Contract Population - WKC",
+          "WKC Multibranch"
+        ]
+      ],
+      "WKC_Payee_Rep": [
+        [
+          "ISDA Contract Population - WKC",
+          "WKC Payee Rep"
+        ]
+      ],
+      "WKC_Payer_Rep": [
+        [
+          "ISDA Contract Population - WKC",
+          "WKC Payer Rep"
+        ]
+      ],
+      "WKC_Process_Agent": [
+        [
+          "ISDA Contract Population - WKC",
+          "WKC Process Agent"
+        ]
+      ],
+      "WKC_SE_Bankruptcy": [
+        [
+          "ISDA Contract Population - WKC",
+          "WKC SE Bankruptcy"
+        ]
+      ],
+      "WKC_SE_CEUM": [
+        [
+          "ISDA Contract Population - WKC",
+          "WKC SE CEUM"
+        ]
+      ],
+      "WKC_SE_Cross_Default": [
+        [
+          "ISDA Contract Population - WKC",
+          "WKC SE Cross Default"
+        ]
+      ],
+      "WKC_SE_DUST": [
+        [
+          "ISDA Contract Population - WKC",
+          "WKC SE DUST"
+        ]
+      ],
+      "World_Kinect_Entity_Name": [
+        [
+          "Contract Status & Administrative Metadata",
+          "WKC Entity Name"
+        ]
+      ]
+    },
+    "LC": {
+      "CP_Contact_Person_Email": [
+        [
+          "Counterparty Contact Details",
+          "Counterparty Contact Person Email"
+        ]
+      ],
+      "CP_Contact_Person_Name": [
+        [
+          "Counterparty Contact Details",
+          "Counterparty Contact Person Name"
+        ]
+      ],
+      "CP_Contact_Person_Number": [
+        [
+          "Counterparty Contact Details",
+          "Counterparty Contact Person Number"
+        ]
+      ],
+      "Contract_Type": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Document Type"
+        ]
+      ],
+      "Country_of_Incorporation": [
+        [
+          "Counterparty Details",
+          "Country of Incorporation"
+        ]
+      ],
+      "Current_Department": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Current Department"
+        ]
+      ],
+      "Effective_Date": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Effective Date"
+        ],
+        [
+          "CLM Agreement Details",
+          "Effective Date"
+        ]
+      ],
+      "Governing_Law_and_Jurisdiction": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Governing Law and Jurisdiction"
+        ]
+      ],
+      "Region": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Region"
+        ]
+      ],
+      "Segment": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Segment"
+        ]
+      ],
+      "Status": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Status"
+        ]
+      ],
+      "Template": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Template"
+        ]
+      ]
+    },
+    "MNGSA": {
+      "Acceptance": [
+        [
+          "MNGSA Contract Population",
+          "Acceptance"
+        ]
+      ],
+      "Agreement_Exceptions": [
+        [
+          "MNGSA Contract Population",
+          "Agreement Exceptions"
+        ]
+      ],
+      "Contract_Type": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Document Type"
+        ]
+      ],
+      "Country_of_Incorporation": [
+        [
+          "Counterparty Details",
+          "Country of Incorporation"
+        ]
+      ],
+      "Current_Department": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Current Department"
+        ]
+      ],
+      "Existing_Transactions": [
+        [
+          "MNGSA Contract Population",
+          "Existing Transactions"
+        ]
+      ],
+      "Governing_Law_and_Jurisdiction": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Governing Law and Jurisdiction"
+        ]
+      ],
+      "Information_and_Authorization": [
+        [
+          "MNGSA Contract Population",
+          "Information and Authorization"
+        ]
+      ],
+      "Late_Payments": [
+        [
+          "MNGSA Contract Population",
+          "Late Payments"
+        ]
+      ],
+      "Modifications_to_T1": [
+        [
+          "MNGSA Contract Population",
+          "Modifications to T1"
+        ]
+      ],
+      "Modifications_to_T2_1": [
+        [
+          "MNGSA Contract Population",
+          "Modifications to T2_1"
+        ]
+      ],
+      "Modifications_to_T2_11": [
+        [
+          "MNGSA Contract Population",
+          "Modifications to T2_11"
+        ]
+      ],
+      "Modifications_to_T2_12": [
+        [
+          "MNGSA Contract Population",
+          "Modifications to T2_12"
+        ]
+      ],
+      "Modifications_to_T2_13": [
+        [
+          "MNGSA Contract Population",
+          "Modifications to T2_13"
+        ]
+      ],
+      "Modifications_to_T2_14": [
+        [
+          "MNGSA Contract Population",
+          "Modifications to T2_14"
+        ]
+      ],
+      "Modifications_to_T2_15": [
+        [
+          "MNGSA Contract Population",
+          "Modifications to T2_15"
+        ]
+      ],
+      "Modifications_to_T2_16": [
+        [
+          "MNGSA Contract Population",
+          "Modifications to T2_16"
+        ]
+      ],
+      "Modifications_to_T2_17": [
+        [
+          "MNGSA Contract Population",
+          "Modifications to T2_17"
+        ]
+      ],
+      "Modifications_to_T2_18": [
+        [
+          "MNGSA Contract Population",
+          "Modifications to T2_18"
+        ]
+      ],
+      "Modifications_to_T2_19": [
+        [
+          "MNGSA Contract Population",
+          "Modifications to T2_19"
+        ]
+      ],
+      "Modifications_to_T2_2": [
+        [
+          "MNGSA Contract Population",
+          "Modifications to T2_2"
+        ]
+      ],
+      "Modifications_to_T2_20": [
+        [
+          "MNGSA Contract Population",
+          "Modifications to T2_20"
+        ]
+      ],
+      "Modifications_to_T2_21": [
+        [
+          "MNGSA Contract Population",
+          "Modifications to T2_21"
+        ]
+      ],
+      "Modifications_to_T2_22": [
+        [
+          "MNGSA Contract Population",
+          "Modifications to T2_22"
+        ]
+      ],
+      "Modifications_to_T2_23": [
+        [
+          "MNGSA Contract Population",
+          "Modifications to T2_23"
+        ]
+      ],
+      "Modifications_to_T2_24": [
+        [
+          "MNGSA Contract Population",
+          "Modifications to T2_24"
+        ]
+      ],
+      "Modifications_to_T2_25": [
+        [
+          "MNGSA Contract Population",
+          "Modifications to T2_25"
+        ]
+      ],
+      "Modifications_to_T2_26": [
+        [
+          "MNGSA Contract Population",
+          "Modifications to T2_26"
+        ]
+      ],
+      "Modifications_to_T2_3": [
+        [
+          "MNGSA Contract Population",
+          "Modifications to T2_3"
+        ]
+      ],
+      "Modifications_to_T2_4": [
+        [
+          "MNGSA Contract Population",
+          "Modifications to T2_4"
+        ]
+      ],
+      "Modifications_to_T2_5": [
+        [
+          "MNGSA Contract Population",
+          "Modifications to T2_5"
+        ]
+      ],
+      "Modifications_to_T2_6": [
+        [
+          "MNGSA Contract Population",
+          "Modifications to T2_6"
+        ]
+      ],
+      "Modifications_to_T2_7": [
+        [
+          "MNGSA Contract Population",
+          "Modifications to T2_7"
+        ]
+      ],
+      "Modifications_to_T2_8": [
+        [
+          "MNGSA Contract Population",
+          "Modifications to T2_8"
+        ]
+      ],
+      "Modifications_to_T2_9": [
+        [
+          "MNGSA Contract Population",
+          "Modifications to T2_9"
+        ]
+      ],
+      "Natural_Gas_Supply": [
+        [
+          "MNGSA Contract Population",
+          "Natural Gas Supply"
+        ]
+      ],
+      "Payment_Date": [
+        [
+          "MNGSA Contract Population",
+          "Payment Date"
+        ]
+      ],
+      "Region": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Region"
+        ]
+      ],
+      "Segment": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Segment"
+        ]
+      ],
+      "Status": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Status"
+        ]
+      ],
+      "Taxes": [
+        [
+          "MNGSA Contract Population",
+          "Taxes"
+        ]
+      ],
+      "Template": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Template"
+        ]
+      ],
+      "Term": [
+        [
+          "MNGSA Contract Population",
+          "Term"
+        ]
+      ],
+      "Transaction_Confirmation_Deadline": [
+        [
+          "MNGSA Contract Population",
+          "Transaction Confirmation Deadline"
+        ]
+      ],
+      "Transaction_Procedure": [
+        [
+          "MNGSA Contract Population",
+          "Transaction Procedure"
+        ]
+      ],
+      "World_Kinect_Entity_Name": [
+        [
+          "Contract Status & Administrative Metadata",
+          "WKC Entity Name"
+        ]
+      ]
+    },
+    "NAESB": {
+      "Burn_Site": [
+        [
+          "NAESB Data Points",
+          "Burn Site"
+        ]
+      ],
+      "CP_ACH_Numbers_Bank_Name": [
+        [
+          "NAESB Contract Population - Counterparty",
+          "CP ACH Numbers Bank Name"
+        ]
+      ],
+      "CP_ACH_Numbers_Other_Details": [
+        [
+          "NAESB Contract Population - Counterparty",
+          "CP ACH Numbers Other Details"
+        ]
+      ],
+      "CP_Accounting_Address": [
+        [
+          "NAESB Contract Population - Counterparty",
+          "CP Accounting Address"
+        ]
+      ],
+      "CP_Commercial_Address": [
+        [
+          "NAESB Contract Population - Counterparty",
+          "CP Commercial Address"
+        ]
+      ],
+      "CP_Contract_and_Legal_Notices_Address": [
+        [
+          "NAESB Contract Population - Counterparty",
+          "CP Contract and Legal Notices Address"
+        ]
+      ],
+      "CP_Contract_and_Legal_Notices_Attention": [
+        [
+          "NAESB Contract Population - Counterparty",
+          "Contract and Legal Notices Attention"
+        ]
+      ],
+      "CP_Credit_Address": [
+        [
+          "NAESB Contract Population - Counterparty",
+          "CP Credit Address"
+        ]
+      ],
+      "CP_Scheduling_Address": [
+        [
+          "NAESB Contract Population - Counterparty",
+          "CP Scheduling Address"
+        ]
+      ],
+      "CP_Transformation_Confirmation_Address": [
+        [
+          "NAESB Contract Population - Counterparty",
+          "CP Transformation Confirmation Address"
+        ]
+      ],
+      "CP_Transformation_Confirmation_Email_Address": [
+        [
+          "NAESB Contract Population - Counterparty",
+          "Transformation Confirmation Email Address"
+        ]
+      ],
+      "CP_Transformation_Confirmation_Telephone_Number": [
+        [
+          "NAESB Contract Population - Counterparty",
+          "Transformation Confirmation Telephone Number"
+        ]
+      ],
+      "CP_Wire_Transfer_ABA_Routing_Number": [
+        [
+          "NAESB Contract Population - Counterparty",
+          "CP ACH Numbers ABA Routing Number"
+        ],
+        [
+          "NAESB Contract Population - Counterparty",
+          "CP Wire Transfer ABA Routing Number"
+        ]
+      ],
+      "CP_Wire_Transfer_Account_Number": [
+        [
+          "NAESB Contract Population - Counterparty",
+          "CP Wire Transfer Account Number"
+        ]
+      ],
+      "Commercial_Attention": [
+        [
+          "NAESB Contract Population - WKC",
+          "Commercial Attention"
+        ],
+        [
+          "NAESB Contract Population - Counterparty",
+          "Commercial Attention"
+        ]
+      ],
+      "Commercial_Email_Address": [
+        [
+          "NAESB Contract Population - WKC",
+          "Commercial Email Address"
+        ],
+        [
+          "NAESB Contract Population - Counterparty",
+          "Commercial Email Address"
+        ]
+      ],
+      "Commercial_Fax_Number": [
+        [
+          "NAESB Contract Population - WKC",
+          "Commercial Fax Number"
+        ],
+        [
+          "NAESB Contract Population - Counterparty",
+          "Commercial Fax Number"
+        ]
+      ],
+      "Commercial_Telephone_Number": [
+        [
+          "NAESB Contract Population - WKC",
+          "Commercial Telephone Number"
+        ],
+        [
+          "NAESB Contract Population - Counterparty",
+          "Commercial Telephone Number"
+        ]
+      ],
+      "Contract_Number": [
+        [
+          "NAESB Contract Population - WKC",
+          "Contract Number"
+        ]
+      ],
+      "Contract_Type": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Document Type"
+        ]
+      ],
+      "Country_of_Incorporation": [
+        [
+          "Counterparty Details",
+          "Country of Incorporation"
+        ]
+      ],
+      "Current_Department": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Current Department"
+        ]
+      ],
+      "Governing_Law_and_Jurisdiction": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Governing Law and Jurisdiction"
+        ]
+      ],
+      "Is_Tax_Exemption_Applicable": [
+        [
+          "NAESB Data Points",
+          "Is a Tax Exemption Applicable?"
+        ]
+      ],
+      "Is_WKC_Buyer_or_Seller": [
+        [
+          "NAESB Data Points",
+          "Is WKC Buyer or Seller"
+        ]
+      ],
+      "Jurisdiction_of_Organization": [
+        [
+          "NAESB Contract Population - WKC",
+          "Jurisdiction of Organization"
+        ]
+      ],
+      "Kinect_or_S_and_T_Counterparty": [
+        [
+          "NAESB Data Points",
+          "Kinect or S&T Counterparty"
+        ]
+      ],
+      "Region": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Region"
+        ]
+      ],
+      "SP_Section_10_3": [
+        [
+          "NAESB Provisions",
+          "SP Section 10_3"
+        ]
+      ],
+      "SP_Section_11": [
+        [
+          "NAESB Provisions",
+          "SP Section 11"
+        ]
+      ],
+      "SP_Section_11_3_FM": [
+        [
+          "NAESB Provisions",
+          "SP Section 11_3 FM"
+        ]
+      ],
+      "SP_Section_11_7_FM": [
+        [
+          "NAESB Provisions",
+          "SP Section 11_7 FM"
+        ]
+      ],
+      "SP_Section_11_8_FM": [
+        [
+          "NAESB Provisions",
+          "SP Section 11_8 FM"
+        ]
+      ],
+      "SP_Section_11_FM": [
+        [
+          "NAESB Provisions",
+          "SP Section 11 FM"
+        ]
+      ],
+      "SP_Section_15_3_FM": [
+        [
+          "NAESB Provisions",
+          "SP Section 15_3 FM"
+        ]
+      ],
+      "SP_Section_1_2": [
+        [
+          "NAESB Provisions",
+          "SP Section 1_2"
+        ]
+      ],
+      "SP_Section_2": [
+        [
+          "NAESB Provisions",
+          "SP Section 2"
+        ]
+      ],
+      "Scheduling_Email_Address": [
+        [
+          "NAESB Contract Population - Counterparty",
+          "Scheduling Email Address"
+        ]
+      ],
+      "Scheduling_Telephone_Number": [
+        [
+          "NAESB Contract Population - Counterparty",
+          "Scheduling Telephone Number"
+        ]
+      ],
+      "Section_1": [
+        [
+          "NAESB Provisions",
+          "Section 1"
+        ]
+      ],
+      "Section_10_2": [
+        [
+          "NAESB Provisions",
+          "Section 10_2"
+        ]
+      ],
+      "Section_10_31": [
+        [
+          "NAESB Provisions",
+          "Section 10_31"
+        ]
+      ],
+      "Section_10_32_Other_Agreement_Setoffs": [
+        [
+          "NAESB Provisions",
+          "Section 10_32 Other Agreement Setoffs"
+        ]
+      ],
+      "Section_15_10": [
+        [
+          "NAESB Provisions",
+          "Section 15_10"
+        ]
+      ],
+      "Section_15_5": [
+        [
+          "NAESB Provisions",
+          "Section 15_5"
+        ]
+      ],
+      "Section_2_31": [
+        [
+          "NAESB Provisions",
+          "Section 2_31"
+        ]
+      ],
+      "Section_2_7_Days": [
+        [
+          "NAESB Provisions",
+          "Section 2_7 Days"
+        ]
+      ],
+      "Section_2_8": [
+        [
+          "NAESB Provisions",
+          "Section 2_8"
+        ]
+      ],
+      "Section_2_8_Other": [
+        [
+          "NAESB Provisions",
+          "Section 2_8 Other"
+        ]
+      ],
+      "Section_3_2": [
+        [
+          "NAESB Provisions",
+          "Section 3_2"
+        ]
+      ],
+      "Section_6": [
+        [
+          "NAESB Provisions",
+          "Section 6"
+        ]
+      ],
+      "Section_7_2_Method": [
+        [
+          "NAESB Provisions",
+          "Section 7_2 Method"
+        ]
+      ],
+      "Section_7_2_Payment_Date": [
+        [
+          "NAESB Provisions",
+          "Section 7_2 Payment Date"
+        ]
+      ],
+      "Section_7_7": [
+        [
+          "NAESB Provisions",
+          "Section 7_7"
+        ]
+      ],
+      "Segment": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Segment"
+        ]
+      ],
+      "Status": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Status"
+        ]
+      ],
+      "Template": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Template"
+        ]
+      ],
+      "WKC_ACH_Numbers_Bank_Name": [
+        [
+          "NAESB Contract Population - WKC",
+          "WKC ACH Numbers Bank Name"
+        ]
+      ],
+      "WKC_Accounting_Address": [
+        [
+          "NAESB Contract Population - WKC",
+          "WKC Accounting Address"
+        ]
+      ],
+      "WKC_Contract_and_Legal_Notices_Attention": [
+        [
+          "NAESB Contract Population - WKC",
+          "Contract and Legal Notices Attention"
+        ]
+      ],
+      "WKC_Contract_and_Legal_Notices_Fax_Number": [
+        [
+          "NAESB Contract Population - WKC",
+          "Contract and Legal Notices Fax Number"
+        ]
+      ],
+      "WKC_Contract_and_Legal_Notices_Telephone_Number": [
+        [
+          "NAESB Contract Population - WKC",
+          "Contract and Legal Notices Telephone Number"
+        ]
+      ],
+      "WKC_Credit_Email_Address": [
+        [
+          "NAESB Contract Population - WKC",
+          "Credit Email Address"
+        ]
+      ],
+      "WKC_Credit_Telephone_Number": [
+        [
+          "NAESB Contract Population - WKC",
+          "Credit Telephone Number"
+        ]
+      ],
+      "WKC_Guarantor": [
+        [
+          "NAESB Contract Population - WKC",
+          "Guarantor"
+        ]
+      ],
+      "WKC_Party_A_or_Party_B": [
+        [
+          "NAESB Data Points",
+          "Is WKC Party A or Party B?"
+        ]
+      ],
+      "WKC_Scheduling_Telephone_Number": [
+        [
+          "NAESB Contract Population - WKC",
+          "Scheduling Telephone Number"
+        ]
+      ],
+      "WKC_Transformation_Confirmation_Email_Address": [
+        [
+          "NAESB Contract Population - WKC",
+          "Transformation Confirmation Email Address"
+        ]
+      ],
+      "WKC_Transformation_Confirmation_Telephone_Number": [
+        [
+          "NAESB Contract Population - WKC",
+          "Transformation Confirmation Telephone Number"
+        ]
+      ],
+      "WKC_Wire_Transfer_ABA_Routing_Number": [
+        [
+          "NAESB Contract Population - WKC",
+          "WKC ACH Numbers ABA Routing Number"
+        ]
+      ],
+      "World_Kinect_Entity_Name": [
+        [
+          "Contract Status & Administrative Metadata",
+          "WKC Entity Name"
+        ]
+      ]
+    },
+    "NDA": {
+      "Agreement_Validity_Term": [
+        [
+          "NDA Contract Population",
+          "Agreement Validity Term"
+        ]
+      ],
+      "Attorney": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Attorney"
+        ]
+      ],
+      "CP_Contact_Person_Email": [
+        [
+          "Counterparty Contact Details",
+          "Counterparty Contact Person Email"
+        ]
+      ],
+      "CP_Contact_Person_Name": [
+        [
+          "Counterparty Contact Details",
+          "Counterparty Contact Person Name"
+        ]
+      ],
+      "CP_Contact_Person_Number": [
+        [
+          "Counterparty Contact Details",
+          "Counterparty Contact Person Number"
+        ]
+      ],
+      "Contract_Type": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Document Type"
+        ]
+      ],
+      "Country_of_Incorporation": [
+        [
+          "Counterparty Details",
+          "Country of Incorporation"
+        ]
+      ],
+      "Current_Department": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Current Department"
+        ]
+      ],
+      "Effective_Date": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Effective Date"
+        ],
+        [
+          "CLM Agreement Details",
+          "Effective Date"
+        ]
+      ],
+      "Expiration_Date": [
+        [
+          "CLM Agreement Details",
+          "Expiration Date"
+        ]
+      ],
+      "Governing_Law_and_Jurisdiction": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Governing Law and Jurisdiction"
+        ]
+      ],
+      "Region": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Region"
+        ]
+      ],
+      "Segment": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Segment"
+        ]
+      ],
+      "Service": [
+        [
+          "NDA Contract Population",
+          "Service"
+        ]
+      ],
+      "Service_Type": [
+        [
+          "NDA Contract Population",
+          "Service Type"
+        ]
+      ],
+      "Status": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Status"
+        ]
+      ],
+      "Template": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Template"
+        ]
+      ],
+      "Type_of_NDA": [
+        [
+          "NDA Data Points",
+          "Type of NDA"
+        ]
+      ],
+      "WKC_Requestor_Email": [
+        [
+          "Requestor Information",
+          "Requestor Email"
+        ]
+      ],
+      "Will_WKC_be_sharing_or_receiving_Confidential_Info": [
+        [
+          "NDA Data Points",
+          "Will WKC be sharing or receiving the CI"
+        ]
+      ],
+      "Will_WKC_or_a_CP_be_sharing_any_personal_data": [
+        [
+          "NDA Data Points",
+          "Will WKC or a CP be sharing any personal data?"
+        ]
+      ]
+    },
+    "PCG": {
+      "CP_Contact_Person_Email": [
+        [
+          "Counterparty Contact Details",
+          "Counterparty Contact Person Email"
+        ]
+      ],
+      "CP_Contact_Person_Name": [
+        [
+          "Counterparty Contact Details",
+          "Counterparty Contact Person Name"
+        ]
+      ],
+      "CP_Contact_Person_Number": [
+        [
+          "Counterparty Contact Details",
+          "Counterparty Contact Person Number"
+        ]
+      ],
+      "Contract_Type": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Document Type"
+        ]
+      ],
+      "Country_of_Incorporation": [
+        [
+          "Counterparty Details",
+          "Country of Incorporation"
+        ]
+      ],
+      "Current_Department": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Current Department"
+        ]
+      ],
+      "Effective_Date": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Effective Date"
+        ],
+        [
+          "CLM Agreement Details",
+          "Effective Date"
+        ]
+      ],
+      "Governing_Law_and_Jurisdiction": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Governing Law and Jurisdiction"
+        ]
+      ],
+      "Region": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Region"
+        ]
+      ],
+      "Segment": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Segment"
+        ]
+      ],
+      "Status": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Status"
+        ]
+      ],
+      "Template": [
+        [
+          "Contract Status & Administrative Metadata",
+          "Template"
+        ]
+      ]
+    }
+  }
+}

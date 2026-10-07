@@ -19,6 +19,8 @@ eventlet>=0.40.3
 # DocuSign
 cryptography==46.0.6
 requests==2.33.0
+# RS256 JWT assertions for the DocuSign JWT grant (docusign_iam/auth.py)
+PyJWT>=2.8.0
 
 # Streamlit for web UI
 streamlit==1.54.0

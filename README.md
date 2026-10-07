@@ -125,3 +125,23 @@ Set your environment variables in Azure App Service > Configuration > Applicatio
 
 
 
+
+## 🔗 DocuSign IAM + CLM integration
+
+`docusign_iam/` is an agent and an Agreement Manager API spanning both halves of
+DocuSign: the **IAM** platform (Agreement Manager repository, Maestro) and
+**CLM**, where the Party Management workflows and attribute groups live. It
+reconciles the two, applies metadata CSVs through the same mapping the CLM
+workflows use, and starts workflows on either side.
+
+Mounted at `/api/v1/docusign` — start with `GET /api/v1/docusign/whoami` to see
+which surfaces your credentials reach.
+
+Full setup, endpoints and the write-confirmation rules:
+[docs/IAM_CLM_Integration.md](docs/IAM_CLM_Integration.md). The CLM workflow
+definitions it drives live in
+[draco9ite/smarter-docusign](https://github.com/draco9ite/smarter-docusign).
+
+```bash
+pytest test_iam_clm_integration.py -v   # 75 tests, no credentials needed
+```
