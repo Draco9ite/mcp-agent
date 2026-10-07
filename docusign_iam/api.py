@@ -15,6 +15,7 @@ Endpoints:
     GET  /api/v1/docusign/clm/documents/<document_id>
     GET  /api/v1/docusign/clm/attribute-map
     GET  /api/v1/docusign/clm/workflows
+    GET  /api/v1/docusign/clm/instances/<instance_id>/agent-output
     GET  /api/v1/docusign/maestro/workflows
     GET  /api/v1/docusign/reconcile/<contract_type>
     POST /api/v1/docusign/metadata/preview
@@ -163,6 +164,17 @@ def list_clm_workflows():
                 for key in sorted(CLM_WORKFLOWS)
             ]
         }
+    )
+
+
+@iam_clm_bp.route("/clm/instances/<instance_id>/agent-output", methods=["GET"])
+def read_agent_output(instance_id: str):
+    """A CLM Use AI Agent step's output XML, with its real element paths."""
+    return jsonify(
+        get_manager().read_agent_output(
+            instance_id,
+            variable_name=request.args.get("variable", "MFC_x_AgentOutput"),
+        )
     )
 
 

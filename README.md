@@ -146,5 +146,5 @@ definitions it drives live in
 [draco9ite/smarter-docusign](https://github.com/draco9ite/smarter-docusign).
 
 ```bash
-pytest test_iam_clm_integration.py -v   # 75 tests, no credentials needed
+pytest test_iam_clm_integration.py -v   # 92 tests, no credentials needed
 ```

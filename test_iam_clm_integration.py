@@ -876,3 +876,117 @@ def test_maestro_trigger_endpoint_requires_confirm_and_a_name(client, manager):
         == 400
     )
     assert manager.iam.calls == []
+
+
+# ── CLM AI agent steps ──────────────────────────────────────────────────
+
+
+def test_agent_keys_resolve_to_the_docusign_agent_identifier(manager):
+    assert manager.clm_agent_name("counterparty_brief") == "system_counterparty_brief_agent"
+
+
+def test_agent_key_can_be_overridden(manager, monkeypatch):
+    monkeypatch.setenv("CLM_AI_AGENT_COUNTERPARTY_BRIEF", "custom_brief_agent")
+    assert manager.clm_agent_name("counterparty_brief") == "custom_brief_agent"
+
+
+def test_unknown_agent_key_is_rejected(manager):
+    with pytest.raises(ValueError, match="Unknown CLM AI agent key"):
+        manager.clm_agent_name("nope")
+
+
+def test_xml_element_paths_shows_the_real_shape():
+    from docusign_iam.agreement_manager import _xml_element_paths
+
+    assert _xml_element_paths(
+        "<root><CounterpartyName>Acme</CounterpartyName><Terms><Length>12</Length></Terms></root>"
+    ) == ["/root/CounterpartyName", "/root/Terms/Length"]
+
+
+def test_xml_element_paths_tolerates_malformed_output():
+    from docusign_iam.agreement_manager import _xml_element_paths
+
+    # An agent returning unparseable XML is a reportable result, not a crash.
+    assert _xml_element_paths("<root>") == []
+    assert _xml_element_paths("") == []
+    assert _xml_element_paths(None) == []
+
+
+def test_xml_element_paths_deduplicates_repeated_siblings():
+    from docusign_iam.agreement_manager import _xml_element_paths
+
+    assert _xml_element_paths("<root><Item>a</Item><Item>b</Item></root>") == ["/root/Item"]
+
+
+@pytest.mark.parametrize(
+    "instance",
+    [
+        {"Variables": {"MFC_x_AgentOutput": {"Value": "<root><Name>Acme</Name></root>"}}},
+        {"Variables": {"MFC_x_AgentOutput": "<root><Name>Acme</Name></root>"}},
+        {"variables": [{"name": "MFC_x_AgentOutput", "value": "<root><Name>Acme</Name></root>"}]},
+        {"Variables": [{"Name": "MFC_x_AgentOutput", "Value": "<root><Name>Acme</Name></root>"}]},
+    ],
+)
+def test_agent_output_is_found_in_every_instance_variable_shape(manager, instance):
+    # CLM has returned instance variables under several shapes; all must work.
+    manager.clm.get_workflow_instance = lambda _id: dict(instance, Status="Completed")
+    result = manager.read_agent_output("wfi-1")
+    assert result["found"] is True
+    assert result["paths"] == ["/root/Name"]
+    assert "warning" not in result
+
+
+def test_agent_output_warns_when_the_root_has_no_children(manager):
+    # The reference workflow declares MFC_x_AgentOutput as a bare root, which a
+    # later step's XPath reads as empty instead of failing.
+    manager.clm.get_workflow_instance = lambda _id: {
+        "Status": "Completed",
+        "Variables": {"MFC_x_AgentOutput": "<root/>"},
+    }
+    result = manager.read_agent_output("wfi-1")
+    assert result["found"] is True
+    assert "resolve to nothing" in result["warning"]
+
+
+def test_agent_output_reports_a_missing_variable(manager):
+    manager.clm.get_workflow_instance = lambda _id: {"Status": "Completed", "Variables": {}}
+    result = manager.read_agent_output("wfi-1")
+    assert result["found"] is False
+    assert "MFC_x_AgentOutput" in result["reason"]
+
+
+def test_agent_output_variable_name_is_configurable(manager):
+    manager.clm.get_workflow_instance = lambda _id: {
+        "Variables": {"MyOutput": "<root><A>1</A></root>"}
+    }
+    assert manager.read_agent_output("wfi-1", variable_name="MyOutput")["found"] is True
+
+
+def test_ai_agent_reference_workflow_is_startable(manager):
+    assert manager.clm_workflow_name("ai_agent_reference") == "Agentic Fun - LZ Test"
+
+
+def test_agent_output_endpoint_returns_the_paths(client, manager):
+    manager.clm.get_workflow_instance = lambda _id: {
+        "Status": "Completed",
+        "Variables": {"MFC_x_AgentOutput": "<root><Name>Acme</Name></root>"},
+    }
+    body = client.get("/api/v1/docusign/clm/instances/wfi-1/agent-output").get_json()
+    assert body["paths"] == ["/root/Name"]
+
+
+def test_agent_output_endpoint_honours_the_variable_query(client, manager):
+    manager.clm.get_workflow_instance = lambda _id: {"Variables": {"MyOut": "<r><A>1</A></r>"}}
+    body = client.get(
+        "/api/v1/docusign/clm/instances/wfi-1/agent-output?variable=MyOut"
+    ).get_json()
+    assert body["found"] is True
+
+
+def test_agent_output_tool_is_dispatchable(agent):
+    agent.manager.clm.get_workflow_instance = lambda _id: {
+        "Variables": {"MFC_x_AgentOutput": "<root><Name>Acme</Name></root>"}
+    }
+    assert agent.dispatch("read_agent_output", {"instance_id": "wfi-1"})["paths"] == [
+        "/root/Name"
+    ]

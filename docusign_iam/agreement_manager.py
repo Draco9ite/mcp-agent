@@ -47,6 +47,14 @@ CLM_WORKFLOWS = {
     ),
     "mfc_amendment_ai_review": "MFC - Amendment",
     "merge_doc_combine_folder_pdfs": "Merge Doc - Combine Folder PDFs",
+    "ai_agent_reference": "Agentic Fun - LZ Test",
+}
+
+#: Docusign AI agents invoked by a CLM `Use AI Agent` step (AIAgentActivity).
+#: The `system_` prefix marks a Docusign-provided agent. See
+#: smarter-docusign/docs/CLM_AI_Steps_Reference.md for the step's contract.
+CLM_AI_AGENTS = {
+    "counterparty_brief": "system_counterparty_brief_agent",
 }
 
 #: The column every metadata CSV uses to identify the target agreement.
@@ -435,6 +443,61 @@ class AgreementManager:
         started["csv_document"] = document
         return started
 
+    def clm_agent_name(self, key: str) -> str:
+        """Resolve a short agent key to the identifier a CLM step uses."""
+        if key not in CLM_AI_AGENTS:
+            raise ValueError(
+                f"Unknown CLM AI agent key {key!r}; expected one of "
+                f"{', '.join(sorted(CLM_AI_AGENTS))}"
+            )
+        return os.getenv(f"CLM_AI_AGENT_{key.upper()}", CLM_AI_AGENTS[key])
+
+    def read_agent_output(
+        self, instance_id: str, variable_name: str = "MFC_x_AgentOutput"
+    ) -> Dict[str, Any]:
+        """Read a CLM `Use AI Agent` step's output variable from an instance.
+
+        The step writes its result into an XML workflow variable. This fetches
+        the instance and returns that variable's XML along with the parsed
+        element paths, so a caller can see what the agent actually returned
+        before committing to an XPath against it.
+
+        The output variable is often declared with a bare unnamed root, which
+        means a later workflow step addressing it by XPath silently reads an
+        empty value. ``paths`` is here to make the real shape visible: shape the
+        variable to match before wiring the output into attributes.
+        """
+        instance = self.clm.get_workflow_instance(instance_id)
+        raw = _find_workflow_variable(instance, variable_name)
+
+        result: Dict[str, Any] = {
+            "instance_id": instance_id,
+            "variable": variable_name,
+            "status": instance.get("Status") or instance.get("status"),
+            "found": raw is not None,
+        }
+        if raw is None:
+            result["reason"] = (
+                f"No variable named {variable_name!r} on the instance. Confirm the "
+                "step's Output configuration names it."
+            )
+            return result
+
+        result["xml"] = raw
+        result["paths"] = _xml_element_paths(raw)
+        # No paths means the XML did not parse; a single path at depth one means
+        # the root has no children. Either way there is nothing for a later
+        # step's XPath to address, which is the bare-root case that reads as
+        # empty rather than failing. A single child path like /root/Name is fine.
+        paths = result["paths"]
+        if not paths or (len(paths) == 1 and paths[0].count("/") == 1):
+            result["warning"] = (
+                "The output XML has no addressable child elements, so an XPath "
+                "against it will resolve to nothing. Run the agent once, inspect "
+                "this XML, and define the variable's schema to match."
+            )
+        return result
+
     def trigger_maestro_workflow(
         self, workflow_id: str, instance_name: str, trigger_inputs: Dict[str, Any]
     ) -> Dict[str, Any]:
@@ -443,3 +506,72 @@ class AgreementManager:
 
     def list_maestro_workflows(self) -> Dict[str, Any]:
         return self.iam.list_workflows()
+
+
+# ── Helpers ─────────────────────────────────────────────────────────────
+
+
+def _find_workflow_variable(instance: Dict[str, Any], name: str) -> Optional[str]:
+    """Pull one named variable's value out of a CLM workflow instance.
+
+    CLM has returned instance variables under several shapes over the years
+    (a dict keyed by name, or a list of name/value pairs under either
+    PascalCase or camelCase), so each is handled rather than assumed.
+    """
+    containers = [
+        instance.get("Variables"),
+        instance.get("variables"),
+        instance.get("Params"),
+    ]
+    for container in containers:
+        if isinstance(container, dict):
+            if name in container:
+                value = container[name]
+                if isinstance(value, dict):
+                    return value.get("Value") or value.get("value")
+                return value
+        elif isinstance(container, list):
+            for entry in container:
+                if not isinstance(entry, dict):
+                    continue
+                if (entry.get("Name") or entry.get("name")) == name:
+                    return entry.get("Value") or entry.get("value")
+    return None
+
+
+def _xml_element_paths(xml_text: str) -> List[str]:
+    """Slash-separated paths of every element in an XML fragment.
+
+    Returned so a caller can see the agent output's real shape before writing
+    an XPath against it. Malformed XML yields an empty list rather than raising:
+    an agent returning something unparseable is a reportable result, not a crash.
+    """
+    import xml.etree.ElementTree as ElementTree
+
+    if not xml_text or not isinstance(xml_text, str):
+        return []
+    try:
+        root = ElementTree.fromstring(xml_text)
+    except ElementTree.ParseError:
+        return []
+
+    paths: List[str] = []
+
+    def walk(element, prefix: str) -> None:
+        path = f"{prefix}/{element.tag}"
+        children = list(element)
+        if not children:
+            paths.append(path)
+            return
+        for child in children:
+            walk(child, path)
+
+    walk(root, "")
+    # Deduplicate repeated siblings while keeping document order.
+    seen = set()
+    unique = []
+    for path in paths:
+        if path not in seen:
+            seen.add(path)
+            unique.append(path)
+    return unique

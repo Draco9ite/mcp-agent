@@ -254,6 +254,28 @@ IAM_CLM_TOOLS: List[Dict[str, Any]] = [
     {
         "type": "function",
         "function": {
+            "name": "read_agent_output",
+            "description": (
+                "Read a CLM 'Use AI Agent' step's output XML from a workflow instance, "
+                "with the element paths it actually contains. Use this to see what an "
+                "agent returned before writing an XPath against it."
+            ),
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "instance_id": {"type": "string", "description": "CLM workflow instance ID"},
+                    "variable_name": {
+                        "type": "string",
+                        "description": "Output variable name; defaults to MFC_x_AgentOutput",
+                    },
+                },
+                "required": ["instance_id"],
+            },
+        },
+    },
+    {
+        "type": "function",
+        "function": {
             "name": "list_maestro_workflows",
             "description": "List Maestro (Workflow Builder) workflows published in the IAM account.",
             "parameters": {"type": "object", "properties": {}},
@@ -424,6 +446,11 @@ class DocuSignIAMAgent:
         if not confirm:
             return {"error": "Refusing to start a CLM workflow without confirm=true."}
         return self.manager.start_clm_workflow(workflow_key, params)
+
+    def _tool_read_agent_output(
+        self, instance_id: str, variable_name: str = "MFC_x_AgentOutput"
+    ) -> Dict[str, Any]:
+        return self.manager.read_agent_output(instance_id, variable_name=variable_name)
 
     def _tool_list_maestro_workflows(self) -> Dict[str, Any]:
         return self.manager.list_maestro_workflows()

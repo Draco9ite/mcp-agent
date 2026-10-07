@@ -187,6 +187,36 @@ Override a name with `CLM_WORKFLOW_<KEY>` when an account renamed one on import.
 folder the workflow watches, then starts the workflow with that document's ID as
 `CsvDocumentId`.
 
+## CLM AI agent steps
+
+A CLM `Use AI Agent` step (`AIAgentActivity`) runs a named Docusign agent
+against a document and writes the result into an XML workflow variable. The step
+contract is documented in
+[smarter-docusign/docs/CLM_AI_Steps_Reference.md](https://github.com/draco9ite/smarter-docusign/blob/main/docs/CLM_AI_Steps_Reference.md).
+
+```bash
+curl -s "$APP/api/v1/docusign/clm/instances/<instance-id>/agent-output" | jq
+```
+
+```json
+{"found": true,
+ "variable": "MFC_x_AgentOutput",
+ "paths": ["/root/CounterpartyName", "/root/Terms/Length"],
+ "xml": "<root>…</root>"}
+```
+
+`paths` is the point of this endpoint. Agent output variables are commonly
+declared with a bare unnamed root, and a later workflow step addressing such a
+variable by XPath **reads an empty value instead of failing** — so the run looks
+successful and the attribute is quietly blank. When the output has no
+addressable children the response carries a `warning` saying so. Run the agent
+once, read the real paths off this endpoint, then shape the variable's schema to
+match before wiring it into attributes.
+
+Pass `?variable=<name>` if the step's output variable is not `MFC_x_AgentOutput`.
+Agent identifiers resolve through `CLM_AI_AGENTS`, overridable with
+`CLM_AI_AGENT_<KEY>`.
+
 ## The attribute mapping
 
 `clm_attribute_map.json` is generated from
@@ -213,7 +243,7 @@ It is declared in `SUPPLEMENTAL` in the generator, with a comment saying why.
 pytest test_iam_clm_integration.py -v
 ```
 
-75 tests, fully offline: no credentials and no network. Auth is stubbed and both
+92 tests, fully offline: no credentials and no network. Auth is stubbed and both
 clients are replaced by fakes that record their calls, so the tests assert on the
 request shapes the real APIs expect. Among them, a test reads every shipped CSV
 template and asserts no column is unmapped — a header renamed in one repo and not
