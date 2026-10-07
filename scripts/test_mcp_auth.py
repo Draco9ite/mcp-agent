@@ -25,10 +25,10 @@ sys.path.insert(0, str(PROJECT_ROOT))
 from docusign_mcp_client import DocuSignMCPClient
 
 # Configuration
-MCP_SERVER_URL = os.getenv(
-    'DOCUSIGN_MCP_BASE_URL',
-    'https://services.demo.docusign.net/docusign-mcp-server/v1'
-)
+# One source of truth for the endpoint; see docusign_mcp_client.
+from docusign_mcp_client import default_mcp_server_url
+
+MCP_SERVER_URL = os.getenv('DOCUSIGN_MCP_BASE_URL') or default_mcp_server_url()
 TOKENS_FILE = PROJECT_ROOT / ".mcp_tokens.json"
 
 

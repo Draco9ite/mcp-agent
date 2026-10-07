@@ -23,10 +23,11 @@ PROJECT_ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
 # Configuration
-MCP_SERVER_URL = os.getenv(
-    'DOCUSIGN_MCP_BASE_URL',
-    'https://services.demo.docusign.net/docusign-mcp-server/v1.0/mcp'
-)
+# One source of truth for the endpoint: docusign_mcp_client picks the official
+# demo or production host from BASE_URI, and DOCUSIGN_MCP_BASE_URL overrides it.
+from docusign_mcp_client import default_mcp_server_url
+
+MCP_SERVER_URL = os.getenv('DOCUSIGN_MCP_BASE_URL') or default_mcp_server_url()
 TOKENS_FILE = PROJECT_ROOT / ".mcp_tokens.json"
 ACCOUNT_ID = os.getenv('ACCOUNT_ID', '999fac92-647f-4471-a16f-51f38abf2d83')
 WORKFLOW_ID = os.getenv('DOCUSIGN_WORKFLOW_ID', '1fc6d7e9-613b-4843-8d79-29bbb07c015d')

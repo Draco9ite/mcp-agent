@@ -137,6 +137,9 @@ workflows use, and starts workflows on either side.
 Mounted at `/api/v1/docusign` — start with `GET /api/v1/docusign/whoami` to see
 which surfaces your credentials reach.
 
+Connecting a Docusign demo org — both the Claude connector and this app's own
+credentials: [docs/Claude_MCP_Connector_Setup.md](docs/Claude_MCP_Connector_Setup.md).
+
 Full setup, endpoints and the write-confirmation rules:
 [docs/IAM_CLM_Integration.md](docs/IAM_CLM_Integration.md). The CLM workflow
 definitions it drives live in

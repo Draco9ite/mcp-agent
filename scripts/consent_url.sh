@@ -58,7 +58,15 @@ else
   ENC_REDIRECT=$(echo "$REDIRECT_URI" | sed -e 's/:/%3A/g' -e 's@/@%2F@g')
 fi
 
-CONSENT_URL="https://${ACCOUNT_HOST}/oauth/auth?response_type=code&scope=signature%20impersonation&client_id=${INTEGRATION_KEY}&redirect_uri=${ENC_REDIRECT}"
+# Scopes must cover every product this integration touches. `signature
+# impersonation` alone authorizes eSignature only: the Agreement Manager
+# repository needs adm_store_unified_repo_read, Maestro needs aow_manage, and
+# CLM needs spring_read/spring_write. Override with DOCUSIGN_OAUTH_SCOPES.
+DEFAULT_SCOPES="signature impersonation aow_manage adm_store_unified_repo_read spring_read spring_write"
+SCOPES="${DOCUSIGN_OAUTH_SCOPES:-$DEFAULT_SCOPES}"
+ENC_SCOPES=$(echo "$SCOPES" | sed 's/ /%20/g')
+
+CONSENT_URL="https://${ACCOUNT_HOST}/oauth/auth?response_type=code&scope=${ENC_SCOPES}&client_id=${INTEGRATION_KEY}&redirect_uri=${ENC_REDIRECT}"
 
 echo
 echo "Consent URL (open this in a browser as the user you want to impersonate):"

@@ -26,10 +26,47 @@ def _build_redirect_uri():
 REDIRECT_URI = _build_redirect_uri()
 AUTH_URL = "https://account-d.docusign.com/oauth/auth"
 TOKEN_URL = "https://account-d.docusign.com/oauth/token"
-MCP_SERVER_URL = "https://services.demo.docusign.net/docusign-mcp-server/v1.0/mcp"
+
+# Official Docusign remote MCP server endpoints. These are the hosts named by
+# Docusign's own MCP documentation and the ones a Claude custom connector is
+# pointed at, so they are the defaults here too.
+OFFICIAL_MCP_SERVER_URLS = {
+    'demo': "https://mcp-d.docusign.com/mcp",
+    'production': "https://mcp.docusign.com/mcp",
+}
+
+# The endpoint this client used previously. Kept so a single environment
+# variable restores the old behaviour if an account is still served there:
+#   DOCUSIGN_MCP_BASE_URL=https://services.demo.docusign.net/docusign-mcp-server/v1.0/mcp
+LEGACY_MCP_SERVER_URL = "https://services.demo.docusign.net/docusign-mcp-server/v1.0/mcp"
+
+
+def default_mcp_server_url():
+    """Official MCP endpoint for the environment BASE_URI points at."""
+    base_uri = os.getenv('BASE_URI', 'https://demo.docusign.net').lower()
+    environment = 'demo' if 'demo' in base_uri else 'production'
+    return OFFICIAL_MCP_SERVER_URLS[environment]
+
+
+MCP_SERVER_URL = default_mcp_server_url()
 # Allow overriding the MCP base URL via environment variable for accounts with custom MCP hosts
 MCP_SERVER_URL_OVERRIDE = os.getenv('DOCUSIGN_MCP_BASE_URL')
-SCOPES = os.getenv('DOCUSIGN_OAUTH_SCOPES', "signature extended aow_manage account_product_read")
+
+# Scopes the Docusign MCP server advertises. The previous default asked only for
+# `signature extended aow_manage account_product_read`, which is enough for
+# eSignature and Maestro but NOT for the Agreement Manager repository
+# (adm_store_unified_repo_read) or CLM (spring_read/spring_write) -- those tools
+# fail with an authorization error without them.
+MCP_SCOPES = [
+    "signature",                      # eSignature REST endpoints
+    "extended",                       # refresh tokens on the auth code grant
+    "aow_manage",                     # Maestro / Workflow Builder
+    "adm_store_unified_repo_read",    # Agreement Manager (formerly Navigator)
+    "spring_read",                    # CLM read
+    "spring_write",                   # CLM write
+    "account_product_read",           # account entitlements
+]
+SCOPES = os.getenv('DOCUSIGN_OAUTH_SCOPES', " ".join(MCP_SCOPES))
 
 
 class DocuSignMCPClient:

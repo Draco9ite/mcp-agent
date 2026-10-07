@@ -19,7 +19,10 @@ import requests
 # Configuration
 PROJECT_ROOT = Path(__file__).parent.parent
 TOKENS_FILE = PROJECT_ROOT / ".mcp_tokens.json"
-MCP_SERVER_URL = "https://services.demo.docusign.net/docusign-mcp-server/v1.0/mcp"
+# One source of truth for the endpoint; see docusign_mcp_client.
+from docusign_mcp_client import default_mcp_server_url
+
+MCP_SERVER_URL = os.getenv('DOCUSIGN_MCP_BASE_URL') or default_mcp_server_url()
 ACCOUNT_ID = "999fac92-647f-4471-a16f-51f38abf2d83"
 WORKFLOW_ID = "1fc6d7e9-613b-4843-8d79-29bbb07c015d"
 
